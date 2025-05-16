@@ -21,7 +21,7 @@ dependencies:
   firebase_analytics: ^11.4.4
   package_info_plus: ^8.3.0
   flutter_svg: ^2.0.17
-  smovie_repository:
+  movie_repository:
     path: packages/movie_repository
   yts_mx_api:
     path: packages/yts_mx_api
