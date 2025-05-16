@@ -1,0 +1,20 @@
+name: yts_mx_api
+description: "YTS.MX MonoRepo"
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ^3.5.4
+  flutter: ">=1.17.0"
+
+dependencies:
+  http: ^1.0.0
+  json_annotation: ^4.9.0
+  intl: ^0.20.1
+
+dev_dependencies:
+  flutter_lints: ^4.0.0
+  json_serializable: ^6.3.1
+  build_runner: ^2.0.0
+  mocktail: ^1.0.0
+  test: ^1.16.4
