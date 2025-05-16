@@ -18,6 +18,32 @@ class YtsMxApiClient {
 
   final http.Client _httpClient;
 
+  /// Get [Movie] `/api/v2/list_movies.json` for MovieBanner as NewMovie
+  Future<List<Movie>> getNewMovie() async {
+    final movieRequest = Uri.https(
+      _baseUrl,
+      '/api/v2/list_movies.json',
+      {
+        'page': '1',
+        'limit': '5',
+        'sort_by': 'date_added',
+        'order_by': 'desc',
+      },
+    );
+
+    final movieResponse = await _httpClient.get(movieRequest);
+
+    if (movieResponse.statusCode != 200) throw MovieRequestFailure();
+
+    if (movieResponse.body.isEmpty) throw MovieRequestFailure();
+
+    final jsonData = jsonDecode(movieResponse.body) as Map<String, dynamic>;
+
+    return (jsonData['data']['movies'] as List).map((item) {
+      return Movie.fromJson(item);
+    }).toList();
+  }
+
   /// Get [Movie] `/api/v2/list_movies.json`
   Future<List<Movie>> getMovies() async {
     final movieRequest = Uri.https(
@@ -38,8 +64,38 @@ class YtsMxApiClient {
     }).toList();
   }
 
+  /// Get [Movie] by Genre `/api/v2/list_movies.json`
+  Future<List<Movie>> getMoviesByGenre({
+    String genre = "All",
+    int page = 1,
+  }) async {
+    final movieRequest = Uri.https(
+      _baseUrl,
+      '/api/v2/list_movies.json',
+      {
+        'page': '$page',
+        'genre': genre,
+      },
+    );
+
+    final movieResponse = await _httpClient.get(movieRequest);
+
+    if (movieResponse.statusCode != 200) throw MovieRequestFailure();
+
+    if (movieResponse.body.isEmpty) throw MovieRequestFailure();
+
+    final jsonData = jsonDecode(movieResponse.body) as Map<String, dynamic>;
+
+    return (jsonData['data']['movies'] as List).map((item) {
+      return Movie.fromJson(item);
+    }).toList();
+  }
+
   /// Search [Movie] `/api/v2/list_movies.json?query_term=(query)`
-  Future<List<Movie>> searchMovie({required String query, int page = 1}) async {
+  Future<List<Movie>> searchMovie({
+    required String query,
+    int page = 1,
+  }) async {
     final movieRequest = Uri.https(
       _baseUrl,
       '/api/v2/list_movies.json',
@@ -55,6 +111,35 @@ class YtsMxApiClient {
     final result = jsonDecode(movieResponse.body) as Map<String, dynamic>;
 
     return (result['data']['movies'] as List).map((item) {
+      return Movie.fromJson(item);
+    }).toList();
+  }
+
+  /// Search [Movie] by Genre `/api/v2/list_movies.json`
+  Future<List<Movie>> searchByGenre({
+    required String query,
+    required String genre,
+    int page = 1,
+  }) async {
+    final movieRequest = Uri.https(
+      _baseUrl,
+      '/api/v2/list_movies.json',
+      {
+        'page': '$page',
+        'query_term': query,
+        'genre': genre,
+      },
+    );
+
+    final movieResponse = await _httpClient.get(movieRequest);
+
+    if (movieResponse.statusCode != 200) throw MovieRequestFailure();
+
+    if (movieResponse.body.isEmpty) throw MovieRequestFailure();
+
+    final jsonData = jsonDecode(movieResponse.body) as Map<String, dynamic>;
+
+    return (jsonData['data']['movies'] as List).map((item) {
       return Movie.fromJson(item);
     }).toList();
   }
