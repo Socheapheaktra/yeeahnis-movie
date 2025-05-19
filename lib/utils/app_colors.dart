@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 class AppColors {
   // Primary Colors
-  static const Color primaryLight = Colors.blue;
+  // static const Color primaryLight = Colors.blue;
+  static Color primaryLight = HexColor("332D56");
+
   static const Color primaryDark = Colors.deepPurple;
 
   // Secondary Colors

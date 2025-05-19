@@ -26,6 +26,8 @@ class MyApp extends StatelessWidget {
   final routeObserver = GetObserver();
   final ThemeController themeController = Get.find();
 
+
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -41,7 +43,7 @@ class MyApp extends StatelessWidget {
           title: 'Flutter Demo',
           debugShowCheckedModeBanner: false,
           theme: themeController.currentTheme,
-          initialRoute: AppRoutes.splash,
+          initialRoute: AppRoutes.dashboard,
           getPages: AppPages.routes,
           navigatorObservers: [routeObserver],
           // home: HomeScreen(),

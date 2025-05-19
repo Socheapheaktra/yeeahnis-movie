@@ -33,7 +33,7 @@ class AppThemes {
   );
 
   // Define the ColorScheme for the light theme.
-  static const ColorScheme _lightColorScheme = ColorScheme(
+  static  final ColorScheme _lightColorScheme = ColorScheme(
     brightness: Brightness.light,
     primary: AppColors.primaryLight,
     onPrimary: AppColors.onPrimaryLight,

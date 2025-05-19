@@ -1,6 +1,4 @@
 import 'package:get/get.dart';
-import 'package:get/get_instance/src/bindings_interface.dart';
-
 import '../controllers/service_controller.dart';
 import '../controllers/splash_controller.dart';
 

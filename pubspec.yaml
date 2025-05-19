@@ -25,6 +25,10 @@ dependencies:
     path: packages/movie_repository
   yts_mx_api:
     path: packages/yts_mx_api
+  hexcolor: ^3.0.1
+  flutter_carousel_widget: ^3.1.0
+  cached_network_image: ^3.4.1
+  flutter_spinkit: ^5.2.1
 
 dev_dependencies:
   flutter_test:

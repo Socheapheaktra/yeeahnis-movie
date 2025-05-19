@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:yeeahnis_movie/controllers/service_controller.dart';
 import 'package:yeeahnis_movie/controllers/splash_controller.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -9,10 +7,6 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Bind the SplashController
-
-    ServiceController serviceController = Get.find();
-
     Get.find<SplashController>();
 
     return Scaffold(
