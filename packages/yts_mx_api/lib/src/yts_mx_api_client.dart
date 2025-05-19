@@ -148,7 +148,7 @@ class YtsMxApiClient {
   Future<MovieDetail> getDetail({required int movieId}) async {
     final movieRequest = Uri.https(
       _baseUrl,
-      '/api/v1/movie_details.json',
+      '/api/v2/movie_details.json',
       {'movie_id': '$movieId'},
     );
 
@@ -167,7 +167,7 @@ class YtsMxApiClient {
   Future<List<Movie>> getSuggestions({required int movieId}) async {
     final movieRequest = Uri.https(
       _baseUrl,
-      '/api/v1/movie_suggestions.json',
+      '/api/v2/movie_suggestions.json',
       {'movie_id': '$movieId'},
     );
 

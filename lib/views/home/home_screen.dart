@@ -17,54 +17,57 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       body: CustomScrollView(
-        physics: BouncingScrollPhysics(),
+        physics: AlwaysScrollableScrollPhysics(),
         slivers: [
           SliverAppBar(
+            backgroundColor: Colors.black,
             automaticallyImplyLeading: false,
             pinned: true,
             floating: true,
             expandedHeight: 70,
             flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                // color: AppColors.primaryLight,
-                color: Colors.black,
+              // background: Container(
+              //   // color: AppColors.primaryLight,
+              //   color: Colors.black,
+              // ),
+              expandedTitleScale: 1.0,
+              title: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    margin: EdgeInsets.only(left: 30),
+                    width: 50,
+                    height: 50,
+                    child: ClipOval(
+                      child: AppCachedNetwordImageWidget(
+                          imageUrl:
+                              "https://imgv3.fotor.com/images/blog-richtext-image/a-woman-in-black-suit.jpg"),
+                    ),
+                  ),
+                  Container(
+                    margin: EdgeInsets.only(right: 30),
+                    width: 50,
+                    height: 50,
+                    child: ClipOval(
+                        child: Container(
+                      padding: EdgeInsets.all(1),
+                      // padding: EdgeInsets.all(10),
+                      color: Colors.grey,
+                      child: IconButton(
+                          onPressed: () {},
+                          icon: Icon(
+                            Icons.search,
+                            color: Colors.white,
+                          )),
+                    )),
+                  ),
+                ],
               ),
             ),
             leadingWidth: 76,
-            leading: Container(
-              margin: EdgeInsets.only(left: 20),
-              width: 50,
-              height: 50,
-              child: ClipOval(
-                child: AppCachedNetwordImageWidget(
-                    imageUrl:
-                        "https://imgv3.fotor.com/images/blog-richtext-image/a-woman-in-black-suit.jpg"),
-              ),
-            ),
-            actions: [
-              SizedBox(
-                width: 50,
-                height: 50,
-                child: ClipOval(
-                    child: Container(
-                  padding: EdgeInsets.all(1),
-                  // padding: EdgeInsets.all(10),
-                  color: Colors.grey,
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.search,
-                        color: Colors.white,
-                      )),
-                )),
-              ),
-              SizedBox(
-                width: 16,
-              )
-            ],
           ),
           SliverPadding(
-            padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            padding: EdgeInsets.only(left: 10, right: 10),
             sliver: SliverToBoxAdapter(
               child: Column(
                 children: [

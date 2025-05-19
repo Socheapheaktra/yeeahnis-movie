@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:yeeahnis_movie/controllers/theme_controller.dart';
 import 'package:yeeahnis_movie/views/home/home_screen.dart';
 import 'package:yeeahnis_movie/widgets/app_cached_netword_image_widget.dart';
@@ -31,7 +32,9 @@ class DashboardScreen extends StatelessWidget {
             type: BottomNavigationBarType.fixed,
             showSelectedLabels: false,
             showUnselectedLabels: false,
-            backgroundColor: Colors.white,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+            backgroundColor: Colors.black.withOpacity(0.9),
             items: [
               BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
               BottomNavigationBarItem(icon: Icon(Icons.recommend), label: ""),

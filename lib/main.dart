@@ -38,6 +38,7 @@ class MyApp extends StatelessWidget {
             Locale('en', 'US'),
             Locale('km', 'KH'),
           ],
+          
 
           translations: translations,
           title: 'Flutter Demo',
